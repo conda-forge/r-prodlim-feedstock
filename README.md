@@ -14,14 +14,16 @@ Summary: Fast and user friendly implementation of nonparametric estimators for c
 Current build status
 ====================
 
-Linux: [![Circle CI](https://circleci.com/gh/conda-forge/r-prodlim-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/r-prodlim-feedstock)
-OSX: [![TravisCI](https://travis-ci.org/conda-forge/r-prodlim-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/r-prodlim-feedstock)
-Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/r-prodlim-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/r-prodlim-feedstock/branch/master)
+[![Linux](https://img.shields.io/circleci/project/github/conda-forge/r-prodlim-feedstock/master.svg?label=Linux)](https://circleci.com/gh/conda-forge/r-prodlim-feedstock)
+[![OSX](https://img.shields.io/travis/conda-forge/r-prodlim-feedstock/master.svg?label=macOS)](https://travis-ci.org/conda-forge/r-prodlim-feedstock)
+[![Windows](https://img.shields.io/appveyor/ci/conda-forge/r-prodlim-feedstock/master.svg?label=Windows)](https://ci.appveyor.com/project/conda-forge/r-prodlim-feedstock/branch/master)
 
 Current release info
 ====================
-Version: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/r-prodlim/badges/version.svg)](https://anaconda.org/conda-forge/r-prodlim)
-Downloads: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/r-prodlim/badges/downloads.svg)](https://anaconda.org/conda-forge/r-prodlim)
+
+| Name | Downloads | Version | Platforms |
+| --- | --- | --- | --- |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-r--prodlim-green.svg)](https://anaconda.org/conda-forge/r-prodlim) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/r-prodlim.svg)](https://anaconda.org/conda-forge/r-prodlim) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/r-prodlim.svg)](https://anaconda.org/conda-forge/r-prodlim) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/r-prodlim.svg)](https://anaconda.org/conda-forge/r-prodlim) |
 
 Installing r-prodlim
 ====================
