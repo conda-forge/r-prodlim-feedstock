@@ -1,4 +1,4 @@
-{% set version = '2018.04.18' %}
+{% set version = '2019.10.13' %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -7,26 +7,24 @@ package:
   version: {{ version|replace("-", "_") }}
 
 source:
-  fn: prodlim_{{ version }}.tar.gz
   url:
     - {{ cran_mirror }}/src/contrib/prodlim_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/prodlim/prodlim_{{ version }}.tar.gz
-  sha256: 4b22b54fdf712439309be0ff74f63cde9080464667b00e19823372ac0fc254ab
+  sha256: e604f0c2028958f4d813e7c209c8c888b75c5118740c5c6564c51f63fe755e67
 
 build:
   merge_build_host: True  # [win]
-  number: 1003
-  skip: true  # [win32]
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
 
 requirements:
   build:
-    - {{ compiler('c') }}        # [not win]
-    - {{ compiler('cxx') }}      # [not win]
+    - {{ compiler('c') }}              # [not win]
     - {{ compiler('m2w64_c') }}        # [win]
-    - {{ compiler('m2w64_cxx') }}        # [win]
+    - {{ compiler('cxx') }}            # [not win]
+    - {{ compiler('m2w64_cxx') }}      # [win]
     - {{posix}}filesystem        # [win]
     - {{posix}}make
     - {{posix}}sed               # [win]
@@ -53,18 +51,29 @@ test:
 
 about:
   home: https://CRAN.R-project.org/package=prodlim
-  license: GPL (>= 2)
+  license: GPL-2
   summary: Fast and user friendly implementation of nonparametric estimators for censored event
     history (survival) analysis. Kaplan-Meier and Aalen-Johansen method.
-  license_family: GPL3
-  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'
+  license_family: GPL2
+  license_file:
+    - '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2'
 
 extra:
   recipe-maintainers:
     - conda-forge/r
-    - johanneskoester
-    - bgruening
-    - daler
-    - jdblischak
-    - cbrueffer
-    - dbast
+
+# Package: prodlim
+# Title: Product-Limit Estimation for Censored Event History Analysis
+# Version: 2019.10.13
+# Author: Thomas A. Gerds
+# Description: Fast and user friendly implementation of nonparametric estimators for censored event history (survival) analysis. Kaplan-Meier and Aalen-Johansen method.
+# Depends: R (>= 2.9.0)
+# Imports: Rcpp (>= 0.11.5), stats, grDevices, graphics, survival, KernSmooth, lava
+# LinkingTo: Rcpp
+# Maintainer: Thomas A. Gerds <tag@biostat.ku.dk>
+# License: GPL (>= 2)
+# Packaged: 2019-11-03 17:32:42 UTC; tag
+# RoxygenNote: 6.1.1
+# NeedsCompilation: yes
+# Repository: CRAN
+# Date/Publication: 2019-11-03 18:30:02 UTC
