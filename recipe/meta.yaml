@@ -51,7 +51,7 @@ test:
 
 about:
   home: https://CRAN.R-project.org/package=prodlim
-  license: GPL-2
+  license: GPL-2.0-or-later
   summary: Fast and user friendly implementation of nonparametric estimators for censored event
     history (survival) analysis. Kaplan-Meier and Aalen-Johansen method.
   license_family: GPL2
