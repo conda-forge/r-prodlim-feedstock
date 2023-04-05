@@ -1,4 +1,4 @@
-{% set version = "2019.11.13" %}
+{% set version = "2023.03.31" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,11 +10,11 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/prodlim_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/prodlim/prodlim_{{ version }}.tar.gz
-  sha256: 6809924f503a14681de84730489cdaf9240d7951c64f5b98ca37dc1ce7809b0f
+  sha256: 5510454f8511ca956666f27dfb77d875c56b9166188c33f22cd22b7615797800
 
 build:
-  merge_build_host: True  # [win]
-  number: 2
+  merge_build_host: true  # [win]
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
@@ -57,11 +57,10 @@ test:
 about:
   home: https://CRAN.R-project.org/package=prodlim
   license: GPL-2.0-or-later
-  summary: Fast and user friendly implementation of nonparametric estimators for censored event
-    history (survival) analysis. Kaplan-Meier and Aalen-Johansen method.
+  summary: Fast and user friendly implementation of nonparametric estimators for censored event history (survival) analysis. Kaplan-Meier and Aalen-Johansen method.
   license_family: GPL2
   license_file:
-    - '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2'
+    - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2
 
 extra:
   recipe-maintainers:
