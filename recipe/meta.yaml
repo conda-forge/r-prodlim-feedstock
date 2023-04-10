@@ -21,15 +21,15 @@ build:
 
 requirements:
   build:
-    - cross-r-base {{ r_base }}  # [build_platform != target_platform]
-    - r-rcpp                     # [build_platform != target_platform]
-    - r-survival                 # [build_platform != target_platform]
-    - r-kernsmooth               # [build_platform != target_platform]
-    - r-lava                     # [build_platform != target_platform]
-    - {{ compiler('c') }}              # [not win]
-    - {{ compiler('m2w64_c') }}        # [win]
-    - {{ compiler('cxx') }}            # [not win]
-    - {{ compiler('m2w64_cxx') }}      # [win]
+    - cross-r-base {{ r_base }}    # [build_platform != target_platform]
+    - r-rcpp                       # [build_platform != target_platform]
+    - r-survival                   # [build_platform != target_platform]
+    - r-kernsmooth                 # [build_platform != target_platform]
+    - r-lava                       # [build_platform != target_platform]
+    - {{ compiler('c') }}          # [not win]
+    - {{ compiler('m2w64_c') }}    # [win]
+    - {{ compiler('cxx') }}        # [not win]
+    - {{ compiler('m2w64_cxx') }}  # [win]
     - {{ posix }}filesystem        # [win]
     - {{ posix }}make
     - {{ posix }}sed               # [win]
@@ -37,16 +37,20 @@ requirements:
     - {{ posix }}zip               # [win]
   host:
     - r-base
+    - r-data.table
+    - r-diagram
     - r-kernsmooth
-    - r-rcpp >=0.11.5
     - r-lava
+    - r-rcpp >=0.11.5
     - r-survival
   run:
     - r-base
     - {{ native }}gcc-libs         # [win]
+    - r-data.table
+    - r-diagram
     - r-kernsmooth
-    - r-rcpp >=0.11.5
     - r-lava
+    - r-rcpp >=0.11.5
     - r-survival
 
 test:
@@ -61,23 +65,8 @@ about:
   license_family: GPL2
   license_file:
     - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2
+    - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3
 
 extra:
   recipe-maintainers:
     - conda-forge/r
-
-# Package: prodlim
-# Title: Product-Limit Estimation for Censored Event History Analysis
-# Version: 2019.10.13
-# Author: Thomas A. Gerds
-# Description: Fast and user friendly implementation of nonparametric estimators for censored event history (survival) analysis. Kaplan-Meier and Aalen-Johansen method.
-# Depends: R (>= 2.9.0)
-# Imports: Rcpp (>= 0.11.5), stats, grDevices, graphics, survival, KernSmooth, lava
-# LinkingTo: Rcpp
-# Maintainer: Thomas A. Gerds <tag@biostat.ku.dk>
-# License: GPL (>= 2)
-# Packaged: 2019-11-03 17:32:42 UTC; tag
-# RoxygenNote: 6.1.1
-# NeedsCompilation: yes
-# Repository: CRAN
-# Date/Publication: 2019-11-03 18:30:02 UTC
