@@ -1,4 +1,4 @@
-{% set version = "2019.11.13" %}
+{% set version = "2023.03.31" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,26 +10,28 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/prodlim_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/prodlim/prodlim_{{ version }}.tar.gz
-  sha256: 6809924f503a14681de84730489cdaf9240d7951c64f5b98ca37dc1ce7809b0f
+  sha256: 5510454f8511ca956666f27dfb77d875c56b9166188c33f22cd22b7615797800
 
 build:
-  merge_build_host: True  # [win]
-  number: 2
+  merge_build_host: true  # [win]
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
 
 requirements:
   build:
-    - cross-r-base {{ r_base }}  # [build_platform != target_platform]
-    - r-rcpp                     # [build_platform != target_platform]
-    - r-survival                 # [build_platform != target_platform]
-    - r-kernsmooth               # [build_platform != target_platform]
-    - r-lava                     # [build_platform != target_platform]
-    - {{ compiler('c') }}              # [not win]
-    - {{ compiler('m2w64_c') }}        # [win]
-    - {{ compiler('cxx') }}            # [not win]
-    - {{ compiler('m2w64_cxx') }}      # [win]
+    - cross-r-base {{ r_base }}    # [build_platform != target_platform]
+    - r-data.table                 # [build_platform != target_platform]
+    - r-diagram                    # [build_platform != target_platform]
+    - r-kernsmooth                 # [build_platform != target_platform]
+    - r-lava                       # [build_platform != target_platform]
+    - r-rcpp                       # [build_platform != target_platform]
+    - r-survival                   # [build_platform != target_platform]
+    - {{ compiler('c') }}          # [not win]
+    - {{ compiler('m2w64_c') }}    # [win]
+    - {{ compiler('cxx') }}        # [not win]
+    - {{ compiler('m2w64_cxx') }}  # [win]
     - {{ posix }}filesystem        # [win]
     - {{ posix }}make
     - {{ posix }}sed               # [win]
@@ -37,16 +39,20 @@ requirements:
     - {{ posix }}zip               # [win]
   host:
     - r-base
+    - r-data.table
+    - r-diagram
     - r-kernsmooth
-    - r-rcpp >=0.11.5
     - r-lava
+    - r-rcpp >=0.11.5
     - r-survival
   run:
     - r-base
     - {{ native }}gcc-libs         # [win]
+    - r-data.table
+    - r-diagram
     - r-kernsmooth
-    - r-rcpp >=0.11.5
     - r-lava
+    - r-rcpp >=0.11.5
     - r-survival
 
 test:
@@ -57,28 +63,12 @@ test:
 about:
   home: https://CRAN.R-project.org/package=prodlim
   license: GPL-2.0-or-later
-  summary: Fast and user friendly implementation of nonparametric estimators for censored event
-    history (survival) analysis. Kaplan-Meier and Aalen-Johansen method.
+  summary: Fast and user friendly implementation of nonparametric estimators for censored event history (survival) analysis. Kaplan-Meier and Aalen-Johansen method.
   license_family: GPL2
   license_file:
-    - '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2'
+    - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2
+    - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3
 
 extra:
   recipe-maintainers:
     - conda-forge/r
-
-# Package: prodlim
-# Title: Product-Limit Estimation for Censored Event History Analysis
-# Version: 2019.10.13
-# Author: Thomas A. Gerds
-# Description: Fast and user friendly implementation of nonparametric estimators for censored event history (survival) analysis. Kaplan-Meier and Aalen-Johansen method.
-# Depends: R (>= 2.9.0)
-# Imports: Rcpp (>= 0.11.5), stats, grDevices, graphics, survival, KernSmooth, lava
-# LinkingTo: Rcpp
-# Maintainer: Thomas A. Gerds <tag@biostat.ku.dk>
-# License: GPL (>= 2)
-# Packaged: 2019-11-03 17:32:42 UTC; tag
-# RoxygenNote: 6.1.1
-# NeedsCompilation: yes
-# Repository: CRAN
-# Date/Publication: 2019-11-03 18:30:02 UTC
