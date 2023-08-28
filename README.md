@@ -3,6 +3,7 @@ About r-prodlim-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-prodlim-feedstock/blob/main/LICENSE.txt)
 
+
 About r-prodlim
 ---------------
 
@@ -11,6 +12,7 @@ Home: https://CRAN.R-project.org/package=prodlim
 Package license: GPL-2.0-or-later
 
 Summary: Fast and user friendly implementation of nonparametric estimators for censored event history (survival) analysis. Kaplan-Meier and Aalen-Johansen method.
+
 About r-prodlim
 ---------------
 
