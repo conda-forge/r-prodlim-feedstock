@@ -1,4 +1,4 @@
-{% set version = "2023.08.28" %}
+{% set version = "2024.06.25" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,7 +10,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/prodlim_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/prodlim/prodlim_{{ version }}.tar.gz
-  sha256: 8002229f38bbe42e26b88ac542d9c028a9dbe8fd3b80af7552060bec3a555de8
+  sha256: 46961f654171aa7ef0ff94b23508ed59f6a438c3a3ba0d338cc3730224406764
 
 build:
   merge_build_host: true  # [win]
@@ -29,7 +29,9 @@ requirements:
     - r-rcpp                       # [build_platform != target_platform]
     - r-survival                   # [build_platform != target_platform]
     - {{ compiler('c') }}          # [not win]
+    - {{ stdlib("c") }}            # [not win]
     - {{ compiler('m2w64_c') }}    # [win]
+    - {{ stdlib("m2w64_c") }}      # [win]
     - {{ compiler('cxx') }}        # [not win]
     - {{ compiler('m2w64_cxx') }}  # [win]
     - {{ posix }}filesystem        # [win]
