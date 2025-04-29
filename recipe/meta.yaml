@@ -1,4 +1,4 @@
-{% set version = "2024.06.25" %}
+{% set version = "2025.04.28" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -9,10 +9,10 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/prodlim_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/prodlim/prodlim_{{ version }}.tar.gz
-  sha256: 46961f654171aa7ef0ff94b23508ed59f6a438c3a3ba0d338cc3730224406764
+  sha256: 62b7049aeb947dd54f1ccb210c111ae50eb7461b8c9942601e09a1a10721fc3a
 
 build:
-  number: 1
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
