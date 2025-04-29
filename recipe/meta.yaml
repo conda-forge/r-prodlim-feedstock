@@ -20,11 +20,13 @@ build:
 requirements:
   build:
     - cross-r-base {{ r_base }}    # [build_platform != target_platform]
+    - r-kernsmooth                 # [build_platform != target_platform]
+    - r-rcpp                       # [build_platform != target_platform]
     - r-data.table                 # [build_platform != target_platform]
     - r-diagram                    # [build_platform != target_platform]
-    - r-kernsmooth                 # [build_platform != target_platform]
+    - r-ggplot2                    # [build_platform != target_platform]
     - r-lava                       # [build_platform != target_platform]
-    - r-rcpp                       # [build_platform != target_platform]
+    - r-rlang                      # [build_platform != target_platform]
     - r-survival                   # [build_platform != target_platform]
     - {{ compiler('c') }}          # [not win]
     - {{ stdlib("c") }}            # [not win]
@@ -39,19 +41,23 @@ requirements:
     - {{ posix }}zip               # [win]
   host:
     - r-base
+    - r-kernsmooth
+    - r-rcpp >=0.11.5
     - r-data.table
     - r-diagram
-    - r-kernsmooth
+    - r-ggplot2
     - r-lava
-    - r-rcpp >=0.11.5
+    - r-rlang
     - r-survival
   run:
     - r-base
+    - r-kernsmooth
+    - r-rcpp >=0.11.5
     - r-data.table
     - r-diagram
-    - r-kernsmooth
+    - r-ggplot2
     - r-lava
-    - r-rcpp >=0.11.5
+    - r-rlang
     - r-survival
 
 test:
